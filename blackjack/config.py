@@ -81,3 +81,19 @@ values = [
 
 blackjack_point_values = {"ace": [10, 1], "two": [2], "three": [3], "four": [4], "five": [5], "six": [6], "seven": [7],
                           "eight": [8], "nine": [9], "ten": [10], "jack": [10], "queen": [10], "king": [10]}
+
+# Number of cards in a deck
+cards_in_deck = len(suits) * len(values)
+
+# Shoe will be used instead of deck
+shoe = True
+
+# The number of decks in a shoe
+decks_in_shoe = 8
+
+# Single decks will be shuffled after each round
+shuffle_single_deck = True
+
+# Minimum and maximum bets
+minimum_bet = 5
+maximum_bet = 100

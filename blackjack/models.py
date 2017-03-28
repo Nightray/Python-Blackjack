@@ -40,9 +40,11 @@ class Deck:
 
     def _create(self):
         self.cards = []
-        for i in range(len(self._suits) * len(self._values)):
-            self.cards.append(Card(self._values[i % len(self._values)],
-                                   self._suits[i // len(self._values)]))
+
+        for _ in range(cfg.decks_in_shoe if cfg.shoe else 1):
+            for i in range(len(self._suits) * len(self._values)):
+                self.cards.append(Card(self._values[i % len(self._values)],
+                                       self._suits[i // len(self._values)]))
 
     def shuffle(self, shuffle_discards=True):
 
@@ -83,5 +85,6 @@ class Player:
 
     # Aliases
     def draw_cards(self, _number_of_cards):
+
         # Yes, this is just an alias. You can totally draw multiple cards with draw_card() method. The cake is a lie ~!
         self.draw_card(_number_of_cards)

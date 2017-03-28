@@ -3,7 +3,7 @@
 
 from unittest import TestCase
 from blackjack.models import Player, Deck
-
+import blackjack.config as cfg
 
 class TestPlayer(TestCase):
 
@@ -36,7 +36,8 @@ class TestPlayer(TestCase):
         # Asserts that all methods of drawing cards are working
         self.assertEquals(3, len(p1.hand))
         self.assertEquals(2, len(p2.hand))
-        self.assertEquals(52-3-2-2, len(deck.cards))
+        self.assertEquals((cfg.cards_in_deck * cfg.decks_in_shoe if cfg.shoe else cfg.cards_in_deck) - 3-2-2,
+                          len(deck.cards))
 
     def test_discard_hand_method(self):
 

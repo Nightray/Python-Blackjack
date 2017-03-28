@@ -3,6 +3,7 @@
 
 from unittest import TestCase
 from blackjack.models import Deck
+import blackjack.config as cfg
 
 
 class TestDeck(TestCase):
@@ -14,7 +15,7 @@ class TestDeck(TestCase):
         deck = Deck(False)
 
         # Checks if the deck has a correct length.
-        self.assertEquals(len(deck.cards), 52)
+        self.assertEquals(len(deck.cards), cfg.cards_in_deck * cfg.decks_in_shoe if cfg.shoe else cfg.cards_in_deck)
         self.assertEquals(len(deck.discards), 0)
 
         # Checks if the cards are in a correct order.
